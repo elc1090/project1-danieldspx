@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Creating a Dockerfile</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		
+		header {
+			background-color: #333;
+			color: white;
+			padding: 20px;
+			text-align: center;
+		}
+		
+		h1 {
+			margin-top: 50px;
+			text-align: center;
+		}
+		
+		.container {
+			margin: 0 auto;
+			max-width: 800px;
+			padding: 20px;
+		}
+		
+		h2 {
+			margin-top: 30px;
+		}
+		
+		pre {
+			background-color: #f5f5f5;
+			border: 1px solid #ddd;
+			border-radius: 3px;
+			padding: 10px;
+		}
+		
+		pre > code {
+			background-color: #f5f5f5;
+			border: none;
+			border-radius: 3px;
+			font-family: Consolas, monospace;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+		}
+
+		code {
+			background-color: #f5f5f5;
+			border: 1px solid #ddd;
+			border-radius: 3px;
+			font-family: Consolas, monospace;
+			padding: 2px 5px;
+		}
+		
+		p {
+			line-height: 1.5;
+			margin-top: 20px;
+		}
+		
+		footer {
+			background-color: #333;
+			color: white;
+			padding: 20px;
+			text-align: center;
+		}
+		
+		.footer-link {
+			color: white;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Creating a Dockerfile</h1>
+	</header>
+	
+	<div class="container">
+		<p>A Dockerfile is a script used to build a Docker image. It contains instructions for Docker to follow in order to build the image.</p>
+		
+		<h2>Step 1: Choose a base image</h2>
+		<p>The first step in creating a Dockerfile is to choose a base image. This is the image that your image will be built on top of. You can choose from a variety of pre-existing base images that are available on Docker Hub.</p>
+		
+		<h2>Step 2: Install dependencies</h2>
+		<p>If your application requires any dependencies, you can use the RUN command to install them. For example, if you need to install Python and some Python modules:</p>
+		
+		<pre>
+			<code>RUN apt-get update
+RUN apt-get install -y python python-pip
+RUN pip install Flask</code>
+		</pre>
+		
+		<h2>Step 3: Copy your application code</h2>
+		<p>Use the COPY command to copy your application code into the image:</p>
+		
+		<pre>
+			<code>COPY . /app
+WORKDIR /app</code>
+		</pre>
+		
+		<h2>Step 4: Set the default command</h2>
+		<p>Finally, use the CMD command to set the default command that will be run when the container starts:</p>
+		
+		<pre>
+			<code>CMD ["python", "app.py"]</code>
+		</pre>
+		
+		<h2>Building the image</h2>
+		<p>Once you have created your Dockerfile, you can build the image using the following command:</p>
+		
+		<pre>
+			<code>docker build -t my-image .</code>
+		</pre>
+	
+			<p>The <code>-t</code> flag allows you to specify a tag for the image, and the <code>.</code> at the end specifies the build context (i.e. the location of the Dockerfile and any files it references).</p>
+			
+			<p>After running this command, Docker will execute the commands in the Dockerfile and create a new image with the specified tag. You can then use this image to create and run containers.</p>
+			
+			<h2>Conclusion</h2>
+			<p>Creating a Dockerfile is a key part of building Docker images. By following the steps outlined in this tutorial, you should now have a good understanding of how to create a Dockerfile for your own applications.</p>
+		</div>
+		
+		<footer>
+			<p>Created by <a href="#" class="footer-link">Daniel dos Santos Pereira</a></p>
+		</footer>
+	</body>
+	</html>		
